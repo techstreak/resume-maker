@@ -27,7 +27,7 @@
         /* Resume Container */
         .container {
             display: flex;
-            gap: 20px;
+            gap: 10px;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -129,13 +129,13 @@
             text-align: justify;
             padding: 5px;
             max-width: 900px;
-            margin: 0 auto 10px auto;
+            margin: 0 auto 5px auto;
         }
 
         .summary h2 {
             color: #333333;
             font-size: 20px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .summary p {
@@ -161,25 +161,46 @@
             background-color: #555555;
         }
 
-        @media print {
-            @page {
-                margin: 0mm;
-            }
+    @media print {
+    @page {
+        margin: 5mm; /* Reduced margins */
+    }
 
-            body {
-                margin: 5mm;
-                padding: 5mm;
-            }
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 12px; /* Slightly smaller font size */
+    }
 
-            .print-btn {
-                display: none;
-            }
+    .container {
+        gap: 5px; /* Reduced gap between left and right sections */
+    }
 
-            .print-btn,
+    h1, h2, h3 {
+        margin: 5px 0; /* Reduced spacing for headings */
+    }
+
+    p, ul, li {
+        margin: 2px 0; /* Reduced spacing for paragraphs and lists */
+    }
+
+    .summary, .contact {
+        margin-bottom: 3px; /* Reduced spacing below summary and contact sections */
+    }
+
+    .right h2 {
+        padding-bottom: 3px; /* Smaller padding under section headings */
+    }
+
+    .print-btn {
+        display: none; /* Hides the print button in print view */
+    }
+                  .print-btn,
     button {
         display: none;
     }
-        }
+}
+
     </style>
 </head>
 <body>
