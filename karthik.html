@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Resume</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 10px;
+        }
+
+        /* Resume Container */
+        .container {
+            display: flex;
+            gap: 10px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Left Column */
+        .left {
+            width: 30%;
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        .left h2 {
+            color: #333333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .left p, .left li {
+            font-size: 14px;
+        }
+
+        ul {
+            list-style-type: square;
+            margin-left: 20px;
+        }
+
+        /* Contact Icons */
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .contact div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .contact img {
+            width: 16px;
+            height: 16px;
+            fill: #333333;
+        }
+
+        .contact h5 {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 5px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        /* Right Column */
+        .right {
+            width: 70%;
+            padding: 20px;
+        }
+
+        .right h2 {
+            border-bottom: 1px solid #ddd;
+            color: #333333;
+            font-size: 20px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+        }
+
+        .right h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        .right p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .right ul {
+            margin-bottom: 15px;
+        }
+
+        .summary {
+            text-align: justify;
+            padding: 5px;
+            max-width: 900px;
+            margin: 0 auto 5px auto;
+        }
+
+        .summary h2 {
+            color: #333333;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .summary p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .print-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .print-btn button {
+            background-color: #333333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .print-btn button:hover {
+            background-color: #555555;
+        }
+
+    @media print {
+    @page {
+        margin: 5mm; /* Reduced margins */
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 12px; /* Slightly smaller font size */
+    }
+
+    .container {
+        gap: 5px; /* Reduced gap between left and right sections */
+    }
+
+    h1, h2, h3 {
+        margin: 5px 0; /* Reduced spacing for headings */
+    }
+
+    p, ul, li {
+        margin: 2px 0; /* Reduced spacing for paragraphs and lists */
+    }
+
+    .summary, .contact {
+        margin-bottom: 3px; /* Reduced spacing below summary and contact sections */
+    }
+
+    .right h2 {
+        padding-bottom: 3px; /* Smaller padding under section headings */
+    }
+
+    .print-btn {
+        display: none; /* Hides the print button in print view */
+    }
+                  .print-btn,
+    button {
+        display: none;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Resume Header -->
+    <div class="header">
+        <h1 contenteditable="true">G Karthik Goud</h1>
+
+        <!-- Contact Information -->
+        <div class="contact">
+            <div contenteditable="true">
+                <img src="icons/email.svg" alt="Email Icon">
+                <h5>gkarthik940@gmail.com|</h5>
+            </div>
+            <div contenteditable="true">
+                <img src="icons/phone.svg" alt="Phone Icon">
+                <h5>+91 9177048373 |</h5>
+            </div>
+            <div contenteditable="true">
+                <img src="icons/location.svg" alt="Location Icon">
+                <h5>Hyderabad, India</h5>
+            </div>
+        </div>
+
+        <div class="contact">
+            <div contenteditable="true">
+                <img src="icons/github.svg" alt="Github Icon">
+                <h5>karthikstreak</h5>
+            </div>
+            <div contenteditable="true">
+                <img src="icons/website.svg" alt="Website Icon">
+                <h5>karthik.p-d.site</h5>
+            </div>
+            <div contenteditable="true">
+                <img src="icons/linkedin.svg" alt="LinkedIn Icon">
+                <h5>linkedin.com/in/karthikstreak</h5>
+            </div>
+        </div>
+    </div>
+
+    <!-- Professional Summary -->
+    <div class="summary">
+        <h2>Professional Summary</h2>
+        <p contenteditable="true">
+            Highly skilled software developer with 5+ years of experience in web development, cloud integrations, and backend systems. Adept at collaborating in agile teams to deliver scalable and optimized applications.
+        </p>
+    </div>
+
+    <!-- Resume Content -->
+    <div class="container">
+        <div class="left" id="left-column">
+            <!-- Education Section -->
+            <h2>Education</h2>
+            <div id="education-section">
+                <div class="education" contenteditable="true">
+                    <b><p>B.Tech Computer Science (Data Science) </p></b>
+                    <p>CMR Technical Campus (2024)</p>
+                </div>
+            </div>
+            <button onclick="addEducation()">Add Education</button>
+            <button onclick="removeEducation()">Remove Education</button>
+
+            <!-- Technical Skills Section -->
+            <h2>Technical Skills</h2>
+            <ul id="skills-list">
+                <li contenteditable="true">JavaScript</li>
+                <li contenteditable="true">React.js</li>
+                <li contenteditable="true">Node.js</li>
+                <li contenteditable="true">Python</li>
+                <li contenteditable="true">SQL & Databases</li>
+                <li contenteditable="true">AWS</li>
+            </ul>
+            <button onclick="addSkill()">Add Skill</button>
+            <button onclick="removeSkill()">Remove Skill</button>
+
+            <!-- Soft Skills Section -->
+            <h2>Soft Skills</h2>
+            <ul id="soft-skills-list">
+                <li contenteditable="true">Communication</li>
+                <li contenteditable="true">Fast learner</li>
+                <li contenteditable="true">Teamwork</li>
+                <li contenteditable="true">Good listener</li>
+            </ul>
+            <button onclick="addSoftSkill()">Add Soft Skill</button>
+            <button onclick="removeSoftSkill()">Remove Soft Skill</button>
+
+            <!-- Certifications Section -->
+            <h2>Certifications</h2>
+            <ul id="certifications-list">
+                <li contenteditable="true">AWS Certified Developer</li>
+                <li contenteditable="true">React Developer Certificate</li>
+            </ul>
+            <button onclick="addCertification()">Add Certification</button>
+            <button onclick="removeCertification()">Remove Certification</button>
+        </div>
+
+        <div class="right" id="right-column">
+            <!-- Work Experience Section -->
+            <h2>Work Experience</h2>
+            <div id="work-experience">
+                <div class="experience" contenteditable="true">
+                    <h3>Senior Developer - ABC Tech</h3>
+                    <p>2020 - Present</p>
+                    <ul>
+                        <li>Developed scalable web applications using React.js and Node.js.</li>
+                        <li>Reduced API response times by 30% with optimized backend systems.</li>
+                        <li>Led the migration of legacy systems to AWS, improving reliability.</li>
+                    </ul>
+                </div>
+            </div>
+            <button onclick="addExperience()">Add Work Experience</button>
+            <button onclick="removeExperience()">Remove Work Experience</button>
+
+            <!-- Projects Section -->
+            <h2>Projects</h2>
+            <div id="projects-section">
+                <div class="project" contenteditable="true">
+                    <h3>Project Management System</h3>
+                    <p>Developed a full-stack application to manage tasks and workflows using React and Node.js.</p>
+                </div>
+            </div>
+            <button onclick="addProject()">Add Project</button>
+            <button onclick="removeProject()">Remove Project</button>
+        </div>
+    </div>
+
+    <!-- Print Button -->
+    <div class="print-btn">
+        <button onclick="window.print()">Print Resume</button>
+    </div>
+
+    <script>
+        // Add/Remove Functions
+        function addExperience() {
+            var newExperience = document.createElement('div');
+            newExperience.classList.add('experience');
+            newExperience.contentEditable = "true";
+            newExperience.innerHTML = `
+                <h3 contenteditable="true">New Position</h3>
+                <p contenteditable="true">Year - Present</p>
+                <ul>
+                    <li contenteditable="true">Responsibility 1</li>
+                    <li contenteditable="true">Responsibility 2</li>
+                </ul>
+            `;
+            document.getElementById('work-experience').appendChild(newExperience);
+        }
+
+        function removeExperience() {
+            var workExperience = document.getElementById('work-experience');
+            if (workExperience.children.length > 0) {
+                workExperience.removeChild(workExperience.lastChild);
+            }
+        }
+
+        // Education Section Functions
+        function addEducation() {
+            var newEducation = document.createElement('div');
+            newEducation.classList.add('education');
+            newEducation.contentEditable = "true";
+            newEducation.innerHTML = `
+                <p contenteditable="true">New Degree</p>
+                <p contenteditable="true">University Name (Year)</p>
+            `;
+            document.getElementById('education-section').appendChild(newEducation);
+        }
+
+        function removeEducation() {
+            var educationSection = document.getElementById('education-section');
+            if (educationSection.children.length > 0) {
+                educationSection.removeChild(educationSection.lastChild);
+            }
+        }
+
+        // Technical Skills Section Functions
+        function addSkill() {
+            var newSkill = document.createElement('li');
+            newSkill.contentEditable = "true";
+            newSkill.innerText = 'New Skill';
+            document.getElementById('skills-list').appendChild(newSkill);
+        }
+
+        function removeSkill() {
+            var skillsList = document.getElementById('skills-list');
+            if (skillsList.children.length > 0) {
+                skillsList.removeChild(skillsList.lastChild);
+            }
+        }
+
+        // Soft Skills Section Functions
+        function addSoftSkill() {
+            var newSkill = document.createElement('li');
+            newSkill.contentEditable = "true";
+            newSkill.innerText = 'New Skill';
+            document.getElementById('soft-skills-list').appendChild(newSkill);
+        }
+
+        function removeSoftSkill() {
+            var softSkillsList = document.getElementById('soft-skills-list');
+            if (softSkillsList.children.length > 0) {
+                softSkillsList.removeChild(softSkillsList.lastChild);
+            }
+        }
+
+        // Certifications Section Functions
+        function addCertification() {
+            var newCert = document.createElement('li');
+            newCert.contentEditable = "true";
+            newCert.innerText = 'New Certification';
+            document.getElementById('certifications-list').appendChild(newCert);
+        }
+
+        function removeCertification() {
+            var certificationsList = document.getElementById('certifications-list');
+            if (certificationsList.children.length > 0) {
+                certificationsList.removeChild(certificationsList.lastChild);
+            }
+        }
+
+        // Projects Section Functions
+        function addProject() {
+            var newProject = document.createElement('div');
+            newProject.classList.add('project');
+            newProject.contentEditable = "true";
+            newProject.innerHTML = `
+                <h3 contenteditable="true">New Project</h3>
+                <p contenteditable="true">Project Description</p>
+            `;
+            document.getElementById('projects-section').appendChild(newProject);
+        }
+
+        function removeProject() {
+            var projectsSection = document.getElementById('projects-section');
+            if (projectsSection.children.length > 0) {
+                projectsSection.removeChild(projectsSection.lastChild);
+            }
+        }
+    </script>
+</body>
+</html>
